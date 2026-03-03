@@ -277,7 +277,7 @@ ejemplo: random.sample(range(1, 1000000), n).
 
 ---
 # Prueba comparativa
-En esta parte del codigo se comparan con diferentes valores de entrada y veanalizar los tiempos de ejecucion del aplicativo.
+En esta parte del codigo se comparan con diferentes valores de entrada y se analizan los tiempos de ejecucion del aplicativo.
 
           tamaños = [2000, 10000, 20000, 40000, 60000, 80000]
 * Tamaños de datos
@@ -290,3 +290,4 @@ En esta parte del codigo se comparan con diferentes valores de entrada y veanali
         factor = tiempos[i] / tiempos[i-1]
 * Se calcula cuanto aumenta el tiempo al aumentar los datos
 ---
+
