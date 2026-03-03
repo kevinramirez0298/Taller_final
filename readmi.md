@@ -217,4 +217,76 @@ Por la eficiencia del algoritmo se considera más adecuado para esta plataforma,
 40000 → 60000 : tarda ~1.44 veces más
 60000 → 80000 : tarda ~1.56 veces más
 
+---
 # Funcionamiento de Codigo Python
+    import random
+    import time
+
+
+Importaciones que se usan para aceder a librerias como random y time.
+* **Random:** se usa para generar numeros aleatorios sin repetir
+ejemplo: random.sample(range(1, 1000000), n).
+* **Time:** se utiliza para medir el tiempo con alta precision ejemplo: time.perf_counter()
+---
+
+         def quick_sort(arr):
+
+* Implementacion del algoritmo quick sort. 
+---
+
+         if len(arr) <= 1:
+            return arr
+* **Caso Base:** Si la lista tiene 0 o 1 elemento, la lista ya estaria ordenada.
+---
+
+        pivot = arr[-1]
+* **Selecion de Pivote** se seleciona el ultimo elemento como pivote, el pivote es el valor que divide la lista.
+---
+
+        left = [x for x in arr[:-1] if x <= pivot]
+        right = [x for x in arr[:-1] if x > pivot]
+
+* **Division de la lista:** Se crean dos listas
+
+* **left:** Elemntos menores o iguales al pivote.
+
+* **right:** Elemtos mayores al pivote.
+---
+
+        return quick_sort(left) + [pivot] + quick_sort(right)
+
+* **Recursividad:** se ordena la sublista izquierda, se coloca el pivote en el centro, se ordena la sublista derecha y se une los resultados. este proceso se repite hasta que todas las sublistas esten ordenadas. 
+---
+
+        def prueba_tiempos(n):
+* Funcion que evalua el rendimiento del algoritmo
+---
+
+        datos = random.sample(range(1, 1000000), n)
+* Se generan (n) numeros aleatorios unicos
+---
+
+        inicio = time.perf_counter()
+        ordenados = quick_sort(datos)
+        fin = time.perf_counter()
+* Medicion del tiempo 
+---
+
+        fin - inicio
+* Se calcula el tiempo de ejecucion, que muestra **tamaño de conjuntos de datos , tiempo de ejecucion, primeros 20 valores ordenados.** 
+
+---
+# Prueba comparativa
+En esta parte del codigo se comparan con diferentes valores de entrada y veanalizar los tiempos de ejecucion del aplicativo.
+
+          tamaños = [2000, 10000, 20000, 40000, 60000, 80000]
+* Tamaños de datos
+---
+        for n in tamaños:
+            tiempo = prueba_tiempos(n)
+            tiempos.append(tiempo)
+* Se almacena el tiempo de ejecucion de la lista(tiempos)
+---            
+        factor = tiempos[i] / tiempos[i-1]
+* Se calcula cuanto aumenta el tiempo al aumentar los datos
+---
